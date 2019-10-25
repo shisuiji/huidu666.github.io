@@ -2,7 +2,9 @@
 
 懒得添加下载管理功能，请自行用浏览器打开以下链接（长摁选中、复制文字）：
 
-https://github.com/huidu666/huidu666.github.io/releases，或加群获取最新版灰度打包成品。
+https://github.com/huidu666/huidu666.github.io/releases
+
+或加群获取最新版灰度打包成品。
 
 小北IT官方QQ群群号：419813381
 
