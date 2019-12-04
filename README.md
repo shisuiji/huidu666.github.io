@@ -595,22 +595,22 @@ wv.setDownloadListener(new DownloadListener() {
 
 可通过下方联系方式找到我，加入小北IT付费群：
 
-- 联系我：
+联系我：
 
 
-企鹅号：1653131174
+- 企鹅号：1653131174
 
-微信号：liyizhuang0608
+- 微信号：liyizhuang0608
 
-- 灰度用户群：
+灰度用户群：
 
-群号：419813381
+- 小北IT概念版：419813381
 
-- 官方反馈邮箱：
+官方反馈邮箱：
 
-liyizhuang@xiaobeiit.com
+- liyizhuang@xiaobeiit.com
 
-liyizhuang@xiaobeiit.cn
+- liyizhuang@xiaobeiit.cn
 
 注：此手册谢绝转载。
 
