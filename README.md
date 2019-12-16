@@ -1,4 +1,4 @@
-### 手册目录
+#### 手册目录
 
 > 已设置锚点，点击下方文字，即可跳转到对应段落。
 >
@@ -49,27 +49,30 @@
 - [15.修复页面加载白屏问题](#15)
 
 
-- [16.调用下载器/浏览器下载文件](#16)
+- [16.修复横竖屏切换导致的网页重载](#16)
 
 
-- [17.签名、打包](#17)
+- [17.调用下载器/浏览器下载文件](#17)
 
 
-- [18.彩蛋篇](#18)
+- [18.签名、打包](#18)
+
+
+- [19.彩蛋篇](#19)
 
 ---
 
-### 实战开发
+#### 实战开发
 
-### 一、<a id="01">创建项目文件</a>
+#### 一、<a id="01">创建项目文件</a>
 
-##### 开发工具
+######### 开发工具
 
 本手册使用AIDE作为开发、打包工具。AIDE的代码编辑体验较差，故使用MT作为代码编辑器。
 
 这两个软件都可以在应用商店下载。如果你加了小北IT付费群的话，灵动版群文件顶部搜索框，了解一下。
 
-##### 配置AIDE
+######### 配置AIDE
 
 AIDE不是拿起来就能用的。从软件右上角的菜单项进入“设置”，找到“构建&运行”：
 
@@ -85,7 +88,7 @@ AIDE不是拿起来就能用的。从软件右上角的菜单项进入“设置�
 
 SDK可在网上自行下载，也可在灵动版群文件搜索获取。这里不单独提供。
 
-##### 创建项目
+######### 创建项目
 
 在没有打开任何项目的情况下，可以看到下边这个界面：
 
@@ -111,21 +114,21 @@ SDK可在网上自行下载，也可在灵动版群文件搜索获取。这里�
 
 ---
 
-### 二、<a id="02">九宫格界面设计</a>
+#### 二、<a id="02">九宫格界面设计</a>
 
-#### 设计分析
+###### 设计分析
 
 辟个谣，灰度九宫格用的是“表格布局”，不是“网格布局”。表格布局理解起来相对较难，但实际使用很方便。
 
 灰度主界面，以及"灰度:D"二级界面，均使用了九宫格布局，只是对应的按钮（Button）ID不一样、按钮文字不一样、点击事件不一样。这三个“不一样”统统不涉及界面布局。一样的地方，索性写成“按钮样式文件”，这个后边会讲到。
 
-#### main.xml
+###### main.xml
 
 以下是main.xml（灰度主界面的布局文件）的代码示例图：
 
 ![](https://huidu666.github.io/huidu/kaiyuan/img/007.png)
 
-#### 线性布局
+###### 线性布局
 
 最底层使用“线性布局”（LinearLayout）。示例代码如下：
 
@@ -145,7 +148,7 @@ SDK可在网上自行下载，也可在灵动版群文件搜索获取。这里�
 	android:fitsSystemWindows="true" >
 ```
 
-#### 表格布局
+###### 表格布局
 
 在线性布局内创建表格布局（TableLayout），并添加代码：
 
@@ -169,7 +172,7 @@ android:stretchColumns="*"的作用就是该表格布局内的所有控件都可
 android:orientation="vertical"
 ```
 
-#### 表格项及按钮
+###### 表格项及按钮
 
 在表格布局内添加三个“表格项”（TableRow）（一个表格项用来生成一行，九宫格是三行的，所以是三个表格项）。每个表格项内添加三个按钮控件（Button）。
 
@@ -187,17 +190,17 @@ style="@style/btn"指该按钮“调用”了我自定义的btn.xml样式文件�
 
 ID不难理解吧，类似于学生的学号，就算重名也能进行区分。
 
-#### huidu.xml
+###### huidu.xml
 
 灰度:D二级界面和主界面的布局大同小异，不再重复说明。
 
-#### browser.xml
+###### browser.xml
 
 这个是用来访问网页的，只需要一个Webview控件。代码我就不贴了，自己去看源码文件就是了。
 
 ---
 
-### 三、<a id="03">自定义按钮样式</a>
+#### 三、<a id="03">自定义按钮样式</a>
 
 前边我们讲了，style="@style/btn"是自定义按钮样式。具体实现其实也很简单：
 
@@ -221,7 +224,7 @@ values文件夹内新建btn.xml文件，示例代码如下：
 
 ---
 
-### 四、<a id="04">仿“水纹效果”</a>
+#### 四、<a id="04">仿“水纹效果”</a>
 
 drawable文件夹内新建btn.xml文件，示例代码如下：
 
@@ -246,7 +249,7 @@ color后边引号里的颜色值可以自己替换。
 
 ---
 
-### 五、<a id="05">隐藏标题栏</a>
+#### 五、<a id="05">隐藏标题栏</a>
 
 AndroidManifest.xml文件，主题改为：
 
@@ -266,7 +269,7 @@ style.xml文件，代码改为：
 
 ---
 
-### 六、<a id="06">半透明状态栏</a>
+#### 六、<a id="06">半透明状态栏</a>
 
 灰度有三个Java类，分别是MainActivity、HuiduActivity、WebActivity。
 
@@ -288,7 +291,7 @@ requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 ---
 
-### 七、<a id="07">跳转页面、加Q、加群</a>
+#### 七、<a id="07">跳转页面、加Q、加群</a>
 
 控件ID、QQ号、QQ群key什么的，自己改。
 
@@ -296,7 +299,7 @@ QQ群KEY获取地址：https://qun.qq.com/join.html
 
 使用方法：长摁复制上边的链接，粘贴到手机QQ或电脑浏览器。申请QQ群的KEY。
 
-#### 页面跳转
+###### 页面跳转
 
 以点击按钮为例，以下代码可实现对应的事件，写在   setContentView(R.layout.xxx);   的下边：
 
@@ -310,7 +313,7 @@ Button 按钮ID = findViewById(R.id.按钮ID);
 	}});
 ```
 
-#### 加Q代码
+###### 加Q代码
 
 以点击按钮为例，以下代码可实现对应的事件，写在   setContentView(R.layout.xxx);   的下边：
 
@@ -324,7 +327,7 @@ Button 按钮ID= findViewById(R.id.按钮ID);
 	}});
 ```
 
-#### 加群代码
+###### 加群代码
 
 以点击按钮为例，以下代码可实现对应的事件，写在   setContentView(R.layout.xxx);   的下边：
 
@@ -354,7 +357,7 @@ public boolean joinQQGroup(String key){
 
 ---
 
-### 八、<a id="08">跳转到浏览器打开网页</a>
+#### 八、<a id="08">跳转到浏览器打开网页</a>
 
 以点击按钮为例，以下代码可实现对应的事件，写在   setContentView(R.layout.xxx);   的下边：
 
@@ -372,7 +375,7 @@ Button 按钮ID= findViewById(R.id.按钮ID);
 
 ---
 
-### 九、<a id="09">优化网页滑动效果</a>
+#### 九、<a id="09">优化网页滑动效果</a>
 
 继续辟谣。网页滑动流畅问题，在xml布局文件里设置什么软件加速、硬件加速是没有用的。
 
@@ -394,7 +397,7 @@ public class WebActivity extends Activity{
 
 ---
 
-#### 十、<a id="10">修复播放视频黑屏</a>
+###### 十、<a id="10">修复播放视频黑屏</a>
 
 看到上边第六行代码了吧？setContentView(R.layout.browser);在它上边添加这三行代码：
 
@@ -407,7 +410,7 @@ getWindow().setFlags(
 
 ---
 
-### 十一、<a id="11">修复图片大小异常</a>
+#### 十一、<a id="11">修复图片大小异常</a>
 
 紧挨着上边的启用硬件加速的代码（wv.setLayerType(View.LAYER_TYPE_HARDWARE, null);）的附近。
 
@@ -432,7 +435,7 @@ wv.getSettings().setSupportZoom(true);
 
 ---
 
-### 十二、<a id="12">移除网页右侧滚动条</a>
+#### 十二、<a id="12">移除网页右侧滚动条</a>
 
 看上边的代码。
 
@@ -442,7 +445,7 @@ wv.getSettings().setSupportZoom(true);
 
 ---
 
-### 十三、<a id="13">将网页提示框转为文字提示</a>
+#### 十三、<a id="13">将网页提示框转为文字提示</a>
 
 紧接着第十一条，粘贴以下代码：
 
@@ -461,13 +464,13 @@ wv.setWebChromeClient(new WebChromeClient(){
 
 ---
 
-### 十四、<a id="14">封装WebView</a>
+#### 十四、<a id="14">封装WebView</a>
 
 封装的好处是，可以直接从外部传入Url。否则只能一个类里写一条链接，造成大量重复代码。多么的可怕！
 
 所以，不要听网上那些人说的，webview.loadurl("网址");真的是害人不浅。。
 
-#### 封装WebView
+###### 封装WebView
 
 添加代码private String webViewUrl;，具体位置如下：
 
@@ -517,7 +520,7 @@ public static void skip(Activity MainActivity, String webviewUrl)
         HuiduActivity.startActivity(intent);}
 ```
 
-#### 传入Url
+###### 传入Url
 
 以灰度界面的“检测更新”按钮为例：
 
@@ -534,7 +537,7 @@ Button btn19 = findViewById(R.id.btn19);
 
 ---
 
-### 十五、<a id="15">修复页面加载白屏问题</a>
+#### 十五、<a id="15">修复页面加载白屏问题</a>
 
 灰度的资源全都托管到Github了，加载速度的确较慢。但即便挂了梯子，切换页面时仍然会闪白屏。
 
@@ -549,7 +552,23 @@ wv.getBackground().setAlpha(2);
 
 ---
 
-### 十六、<a id="16">调用下载器/浏览器下载文件</a>
+#### 十六、<a id="16">修复横竖屏切换导致的网页重载</a>
+
+修改AndroidManifest.xml文件，使Webview支持横竖屏切换而不重载网页。
+
+相关代码如下：
+
+```xml
+<activity android:name=".WebActivity"
+          android:configChanges="keyboardHidden|orientation|screenSize"
+          />
+```
+
+
+
+---
+
+#### 十七、<a id="17">调用下载器/浏览器下载文件</a>
 
 万事大吉？下载个文件试试。
 
@@ -569,7 +588,7 @@ wv.setDownloadListener(new DownloadListener() {
 
 ---
 
-### 十七、<a id="17">签名、打包</a>
+#### 十八、<a id="18">签名、打包</a>
 
 千万不要急着打包。AndroidManifest.xml文件，添加联网权限没？注册Activity没？
 
@@ -581,13 +600,13 @@ wv.setDownloadListener(new DownloadListener() {
 
 ---
 
-### 十八、<a id="18">彩蛋篇</a>
+#### 十九、<a id="19">彩蛋篇</a>
 
 [网站开发手册](https://huidu666.github.io/website.html)
 
 ---
 
-### 写在最后
+#### 写在最后
 
 禁止将此软件用于直接或间接的获利行为。
 
