@@ -16,4 +16,4 @@
 
 ---
 
-<center>小壮壮/Write</center>
+<p align="center">小壮壮/Write</p>
